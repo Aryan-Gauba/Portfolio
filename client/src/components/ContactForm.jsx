@@ -27,10 +27,27 @@ export default function ContactForm() {
 
     try {
       const response = await API.post('/contact', formData);
-      setStatusMessage({ text: response.data.message, isError: false });
+      
+      // Safeguard against missing response data structures
+      const successText = response?.data?.message || 'Message sent successfully!';
+      setStatusMessage({ text: successText, isError: false });
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
-      const serverError = err.response?.data?.error || 'Something went wrong. Please try again.';
+      console.error('Form submission error details:', err);
+      
+      // Bulletproof string fallback for any API error payload shape
+      let serverError = 'Something went wrong. Please try again.';
+      
+      if (err.response && err.response.data) {
+        if (typeof err.response.data === 'string') {
+          serverError = err.response.data;
+        } else if (err.response.data.error) {
+          serverError = err.response.data.error;
+        }
+      } else if (err.message) {
+        serverError = err.message;
+      }
+
       setStatusMessage({ text: serverError, isError: true });
     } finally {
       setLoading(false);
