@@ -10,7 +10,8 @@ function App() {
       try {
         await API.post('/visit', { page_name: 'home' });
       } catch (err) {
-        console.error('Analytics tracking failed silently:', err.message);
+        // Enforce that we only log strings, never render an object or throw it back up
+        console.error('Analytics tracking failed silently:', err.message || 'Unknown network error');
       }
     };
     logVisit();
