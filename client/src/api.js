@@ -1,9 +1,17 @@
-// src/api.js
+// // src/api.js
+// import axios from 'axios';
+
+// const API = axios.create({
+//   // Fallback to localhost if the environment variable isn't set yet
+//   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+// });
+
+// export default API;
+
 import axios from 'axios';
 
 const API = axios.create({
-  // Fallback to localhost if the environment variable isn't set yet
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+  baseURL: '/api', // Relative path ensures it hits your Vercel serverless routes
 });
 
 export default API;
