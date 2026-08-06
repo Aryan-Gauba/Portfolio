@@ -27,9 +27,9 @@ function App() {
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'UV Shield Tracker',
-      description: 'A responsive web application that accurately calculates and delivers real-time UV radiation advice using OpenUV and Nominatim API data arrays.',
-      tags: ['Node.js','Express', 'EJS', 'REST APIs'],
+      title: 'Biz Insider — Horizon Scanning Intelligence Engine',
+      description: 'A high-throughput, AI-driven macroeconomic intelligence platform that ingests real-time policy, business, and regulatory updates, computes enterprise risk sentiment, and provides real-time semantic vector search across financial entities.',
+      tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Hugging Face', 'FastAPI','PyTorch'],
       github: 'https://github.com/Aryan-Gauba/UV-TRACKER',
       live: 'https://uv-tracker-coral.vercel.app/',
       image: 'https://images.unsplash.com/photo-1600786315236-8438a6c1e611?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
@@ -43,10 +43,10 @@ function App() {
       image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: '911 Calls Analysis',
-      description: 'An analytical data science project processing emergency dispatch profiles out of Montgomery County via Python data pipelines.',
-      tags: ['Python', 'Pandas', 'Kaggle', 'Data Analysis'],
-      github: 'https://github.com/Aryan-Gauba/Data-Analytics-EDA',
+      title: 'Data Analytics Projects Monorepo',
+      description: 'A comprehensive, end-to-end data analytics portfolio featuring projects in SQL, Python, Power BI, and Microsoft Excel. This monorepo demonstrates the complete data pipeline—from raw web scraping, data cleaning, and relational database querying, to complex statistical analysis and interactive executive dashboards.',
+      tags: ['Python', 'Pandas', 'NumPy', 'Excel', 'SQL', 'PowerBI'],
+      github: 'https://github.com/Aryan-Gauba/All-DA-Projects-SQL-Excel-PowerBI-Python-',
       live: '#',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGF0YXxlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
