@@ -27,12 +27,12 @@ function App() {
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'Biz Insider — Horizon Scanning Intelligence Engine',
+      title: 'Biz Insider AI',
       description: 'A high-throughput, AI-driven macroeconomic intelligence platform that ingests real-time policy, business, and regulatory updates, computes enterprise risk sentiment, and provides real-time semantic vector search across financial entities.',
       tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Hugging Face', 'FastAPI','PyTorch'],
-      github: 'https://github.com/Aryan-Gauba/UV-TRACKER',
-      live: 'https://uv-tracker-coral.vercel.app/',
-      image: 'https://images.unsplash.com/photo-1600786315236-8438a6c1e611?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
+      github: 'https://github.com/Aryan-Gauba/Biz-insider--horizon-scanning-',
+      live: 'https://biz-insider-horizon-scanning-hh7t.vercel.app/',
+      image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
       title: 'Keeper-App',
