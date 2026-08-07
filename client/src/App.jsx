@@ -27,10 +27,10 @@ function App() {
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'Biz Insider AI',
+      title: 'CorporateIQ',
       description: 'A high-throughput, AI-driven macroeconomic intelligence platform that ingests real-time policy, business, and regulatory updates, computes enterprise risk sentiment, and provides real-time semantic vector search across financial entities.',
       tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Hugging Face', 'FastAPI','PyTorch'],
-      github: 'https://github.com/Aryan-Gauba/Biz-insider--horizon-scanning-',
+      github: 'https://github.com/Aryan-Gauba/CorporateIQ',
       live: 'https://biz-insider-horizon-scanning-hh7t.vercel.app/',
       image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
