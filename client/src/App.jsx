@@ -51,18 +51,18 @@ function App() {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGF0YXxlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'Book-Notes',
+      title: 'PageTrace',
       description: 'Review of different books I read. This project integrated postgreSQL as a database along with usage of OpenLibrary API. It uses Node, Express for the backend, Axios for hitting up API and EJS for templating.',
       tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js'],
-      github: 'https://github.com/Aryan-Gauba/Book-Notes',
+      github: 'https://github.com/Aryan-Gauba/PageTrace',
       live: 'https://book-notes-five.vercel.app/',
       image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9vay1ub3Rlc3xlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'The Blog',
+      title: 'DevLog',
       description: 'A simple blog application built with the Node Express EJS stack. It features a responsive UI and allows users to create, read, update, and delete blog posts.',
       tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js'],
-      github: 'https://github.com/Aryan-Gauba/The-blog',
+      github: 'https://github.com/Aryan-Gauba/DevLog',
       live: 'https://the-blog-lime.vercel.app/',
       image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
