@@ -1,8 +1,29 @@
 // src/App.jsx
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import API from './api';
 import ContactForm from './components/ContactForm';
-import './App.css'; // <-- Import the new clean stylesheets here
+import './App.css'; 
+
+// --- Animation Variants ---
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2 // Delays each child animation by 0.2s
+    }
+  }
+};
 
 function App() {
   useEffect(() => {
@@ -10,7 +31,6 @@ function App() {
       try {
         await API.post('/visit', { page_name: 'home' });
       } catch (err) {
-        // Enforce that we only log strings, never render an object or throw it back up
         console.error('Analytics tracking failed silently:', err.message || 'Unknown network error');
       }
     };
@@ -70,8 +90,13 @@ function App() {
 
   return (
     <div className="portfolio-container">
-      {/* Navigation */}
-      <header className="portfolio-header">
+      {/* Navbar sliding down from top */}
+      <motion.header 
+        className="portfolio-header"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <nav className="portfolio-nav">
           <div className="portfolio-logo">AG</div>
           <div className="portfolio-nav-links">
@@ -80,27 +105,51 @@ function App() {
             <a href="#contact" className="portfolio-link">Contact</a>
           </div>
         </nav>
-      </header>
+      </motion.header>
 
-      {/* Main Content */}
       <main className="portfolio-main-content">
-        {/* About / Hero */}
-        <section id="about" className="portfolio-section">
+        {/* Hero Section Fading Up */}
+        <motion.section 
+          id="about" 
+          className="portfolio-section"
+          variants={fadeUpVariant}
+          initial="hidden"
+          animate="visible"
+        >
           <h1 className="portfolio-hero-title">Aryan Gauba</h1>
           <p className="portfolio-hero-subtitle">Full-Stack Web Developer (PERN) | AI & Machine Learning Enthusiast | ECE @ MSIT 27</p>
           <p className="portfolio-bio">
             I am an engineer focused on the intersection of Generative AI and Scalable Software. With a foundation in the PERN stack and 20+ deployed projects, I am now dedicated to building intelligent, agentic systems.
           </p>
-        </section>
+        </motion.section>
 
         <hr className="portfolio-divider" />
 
-        {/* Projects Grid */}
+        {/* Projects Grid with Staggered Scroll Animations */}
         <section id="projects" className="portfolio-section">
-          <h2 className="portfolio-section-title">Featured Projects</h2>
-          <div className="portfolio-project-grid">
+          <motion.h2 
+            className="portfolio-section-title"
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            Featured Projects
+          </motion.h2>
+          
+          <motion.div 
+            className="portfolio-project-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }} // Triggers animation just before scrolling into view
+          >
             {projects.map((project, idx) => (
-              <div key={idx} className="portfolio-project-card">
+              <motion.div 
+                key={idx} 
+                className="portfolio-project-card"
+                variants={fadeUpVariant}
+              >
                 <div 
                   className="portfolio-project-image" 
                   style={{ backgroundImage: `url(${project.image})` }} 
@@ -126,14 +175,21 @@ function App() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
       </main>
 
-      {/* Footer Container */}
-      <footer id="contact" className="portfolio-footer">
+      {/* Footer fading in on scroll */}
+      <motion.footer 
+        id="contact" 
+        className="portfolio-footer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
         <div className="portfolio-footer-container">
           <div className="portfolio-footer-info">
             <h2 className="portfolio-footer-title">Let's Connect</h2>
@@ -173,7 +229,7 @@ function App() {
           </div>
         </div>
         <p className="portfolio-copyright">&copy; 2026 Aryan Gauba. All rights reserved.</p>
-      </footer>
+      </motion.footer>
     </div>
   );
 }
