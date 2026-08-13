@@ -41,7 +41,7 @@ function App() {
     {
       title: 'PennyWise',
       description: 'Full-stack expense management application featuring real-time oversight, secure user session authentication and AI tips.',
-      tags: ['PostgreSQL', 'Express', 'React', 'Node.js'],
+      tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Jwt Authentication', 'Groq AI API', 'Chart.js'],
       github: 'https://github.com/Aryan-Gauba/PennyWise',
       live: 'https://penny-wise-client.vercel.app/',
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60'
@@ -55,11 +55,11 @@ function App() {
       image: 'https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
-      title: 'Keeper-App',
-      description: 'Keeper is a secure, full-stack note-taking application built using the PERN stack (PostgreSQL, Express, React, Node.js). It features stateless JWT authentication, password hashing with Bcrypt, and a responsive UI deployed on Vercel with a serverless Neon PostgreSQL backend.',
-      tags: ['PostgreSQL', 'Express', 'React', 'Node.js'],
-      github: 'https://github.com/Aryan-Gauba/Frontend-Keeper-App',
-      live: 'https://frontend-keeper-app.vercel.app/',
+      title: 'Enterprise CRM System',
+      description: 'A full-stack, multi-tenant Customer Relationship Management (CRM) platform built to streamline lead management, customer interactions, team collaboration, and AI-driven business insights.',
+      tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Groq AI API', 'WebSockets', 'JWT Authentication'],
+      github: 'https://github.com/Aryan-Gauba/CRM',
+      live: 'https://crm-orpin-eight.vercel.app/',
       image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
@@ -73,7 +73,7 @@ function App() {
     {
       title: 'PageTrace',
       description: 'Review of different books I read. This project integrated postgreSQL as a database along with usage of OpenLibrary API. It uses Node, Express for the backend, Axios for hitting up API and EJS for templating.',
-      tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js'],
+      tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js', 'OpenLibrary API', 'JWT Authentication'],
       github: 'https://github.com/Aryan-Gauba/PageTrace',
       live: 'https://book-notes-five.vercel.app/',
       image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9vay1ub3Rlc3xlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
@@ -81,7 +81,7 @@ function App() {
     {
       title: 'DevLog',
       description: 'A simple blog application built with the Node Express EJS stack. It features a responsive UI and allows users to create, read, update, and delete blog posts.',
-      tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js'],
+      tags: ['PostgreSQL', 'Express', 'EJS', 'Node.js', 'JWT Authentication'],
       github: 'https://github.com/Aryan-Gauba/DevLog',
       live: 'https://the-blog-lime.vercel.app/',
       image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D?w=600&auto=format&fit=crop&q=60'
