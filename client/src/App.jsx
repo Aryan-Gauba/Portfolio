@@ -60,7 +60,7 @@ function App() {
       tags: ['PostgreSQL', 'Express', 'React', 'Node.js', 'Groq AI API', 'WebSockets', 'JWT Authentication'],
       github: 'https://github.com/Aryan-Gauba/CRM',
       live: 'https://crm-orpin-eight.vercel.app/',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
+      image: 'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=600&auto=format&fit=crop&q=60'
     },
     {
       title: 'Data Analytics Projects Monorepo',
