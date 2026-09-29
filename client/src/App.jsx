@@ -20,7 +20,7 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2 // Delays each child animation by 0.2s
+      staggerChildren: 0.2
     }
   }
 };
@@ -36,6 +36,89 @@ function App() {
     };
     logVisit();
   }, []);
+
+  // --- Experience Data (Extracted from LinkedIn profile) ---
+  const experiences = [
+    {
+      title: 'Machine Learning Intern',
+      company: 'Defence Research & Development Organisation (DRDO)',
+      type: 'Internship',
+      duration: 'Jun 2026 - Aug 2026 · 3 mos',
+      location: 'Delhi, India · On-site',
+      logo: '/drdo_logo.png',
+      bullets: [
+        'Research about Deep learning Models- ANN,CNN,RNN.',
+        'Integrating Deep Learning Models on EuroSat Dataset available on Kaggle.',
+        'Refine the Output and gather information about terrain.'
+      ],
+      skills: ['Machine Learning', 'Deep Learning', 'Artificial Intelligence', 'Data Analysis', 'Python']
+    },
+    {
+      title: 'Full Stack Engineer',
+      company: 'a4ai',
+      type: 'Internship',
+      duration: 'Mar 2026 - Jun 2026 · 4 mos',
+      location: 'Delhi, India',
+      logo: '/a4ai_logo.jpg',
+      bullets: [
+        'Developed responsive UI components using ReactJS, Bootstrap, and CSS3, ensuring cross-browser compatibility.',
+        'Worked closely with product managers and designers to translate wireframes into functional, interactive interfaces.',
+        'Integrated third-party APIs for real-time data processing and automated service workflows.',
+        'Optimized Database Architecture: Designed efficient database schemas and managed data persistence using PostgreSQL, optimizing complex queries to maintain high data integrity and performance.',
+        'Cross-Functional Collaboration: Partnered closely with development team to seamlessly connect APIs, developing UI components while maintaining clean, modular, and thoroughly documented codebases.',
+        'Maintained version control using Git/GitHub and participated in code reviews to maintain clean and maintainable code.'
+      ],
+      skills: ['Node.js', 'Express.js', 'React.js', 'PostgreSQL', 'JavaScript', 'Git']
+    },
+    {
+      company: 'IIC MSIT',
+      type: 'Full-time · 1 yr 9 mos',
+      location: 'Delhi, India',
+      logo: '/iic_msit.jpg',
+      roles: [
+        {
+          title: 'General Secretary',
+          duration: 'Aug 2025 - Jun 2026 · 11 mos',
+          type: '',
+          bullets: [],
+          skills: ['Communication', 'English', 'Leadership', 'Event Management']
+        },
+        {
+          title: 'Content and Design',
+          duration: 'Oct 2024 - Aug 2025 · 11 mos',
+          type: 'Hybrid',
+          bullets: [
+            'Content Writing'
+          ],
+          skills: ['Communication', 'English', 'Graphic Design', 'UI/UX']
+        }
+      ]
+    },
+    {
+      company: 'TechSoc',
+      type: 'Full-time · 1 yr 10 mos',
+      location: 'Delhi, India',
+      logo: '/techsoc_logo.jpg',
+      roles: [
+        {
+          title: 'President',
+          duration: 'Aug 2025 - Jun 2026 · 11 mos',
+          type: 'On-site',
+          bullets: [],
+          skills: ['Multiple Project Coordination', 'Communication', 'Leadership', 'Strategic Planning']
+        },
+        {
+          title: 'Executive Head',
+          duration: 'Sep 2024 - Aug 2025 · 1 yr',
+          type: 'Hybrid',
+          bullets: [
+            'Content Writing'
+          ],
+          skills: ['Web Content Writing', 'Team Management', 'Leadership', 'Content Strategy']
+        }
+      ]
+    }
+  ];
 
   const projects = [
     {
@@ -101,6 +184,7 @@ function App() {
           <div className="portfolio-logo">AG</div>
           <div className="portfolio-nav-links">
             <a href="#about" className="portfolio-link">About</a>
+            <a href="#experience" className="portfolio-link">Experience</a>
             <a href="#projects" className="portfolio-link">Projects</a>
             <a href="#contact" className="portfolio-link">Contact</a>
           </div>
@@ -125,6 +209,100 @@ function App() {
 
         <hr className="portfolio-divider" />
 
+        {/* Experience Section */}
+        <section id="experience" className="portfolio-section">
+          <motion.h2 
+            className="portfolio-section-title"
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            Experience
+          </motion.h2>
+
+          <motion.div 
+            className="portfolio-experience-list"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {experiences.map((exp, idx) => (
+              <motion.div 
+                key={idx} 
+                className="portfolio-experience-card"
+                variants={fadeUpVariant}
+              >
+                <div className="experience-logo-wrapper">
+                  <div 
+                    className="experience-company-logo" 
+                    style={{ backgroundImage: `url(${exp.logo})` }} 
+                  />
+                </div>
+
+                <div className="experience-details">
+                  {/* Single Role Experience */}
+                  {exp.title && (
+                    <>
+                      <h3 className="experience-title">{exp.title}</h3>
+                      <p className="experience-company">
+                        {exp.company} {exp.type && <span className="experience-type">· {exp.type}</span>}
+                      </p>
+                      <p className="experience-duration">{exp.duration}</p>
+                      {exp.location && <p className="experience-location">{exp.location}</p>}
+
+                      {exp.bullets && exp.bullets.length > 0 && (
+                        <ul className="experience-bullets">
+                          {exp.bullets.map((bullet, bIdx) => (
+                            <li key={bIdx}>{bullet}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {exp.skills && exp.skills.length > 0 && (
+                        <div className="experience-skills">
+                          <span className="experience-skills-label">Skills: </span>
+                          {exp.skills.join(' · ')}
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* Multi-Role Company (e.g., IIC MSIT) */}
+                  {!exp.title && exp.roles && (
+                    <>
+                      <h3 className="experience-company-name">{exp.company}</h3>
+                      <p className="experience-duration">{exp.type}</p>
+                      {exp.location && <p className="experience-location">{exp.location}</p>}
+
+                      <div className="experience-roles-timeline">
+                        {exp.roles.map((role, rIdx) => (
+                          <div key={rIdx} className="experience-role-item">
+                            <span className="timeline-node" />
+                            <h4 className="experience-title">{role.title}</h4>
+                            <p className="experience-duration">{role.duration}</p>
+                            {role.type && <p className="experience-location">{role.type}</p>}
+                            
+                            {role.skills && role.skills.length > 0 && (
+                              <div className="experience-skills">
+                                <span className="experience-skills-label">Skills: </span>
+                                {role.skills.join(' · ')}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        <hr className="portfolio-divider" />
+
         {/* Projects Grid with Staggered Scroll Animations */}
         <section id="projects" className="portfolio-section">
           <motion.h2 
@@ -142,7 +320,7 @@ function App() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }} // Triggers animation just before scrolling into view
+            viewport={{ once: true, margin: "-100px" }}
           >
             {projects.map((project, idx) => (
               <motion.div 
@@ -200,8 +378,8 @@ function App() {
             <div className="portfolio-contact-details-block">
               <h4 className="portfolio-detail-heading">Direct Channels</h4>
               
-              <a href="mailto:aryan007gauba@gmail.com" className="portfolio-footer-contact-link">
-                <span className="portfolio-icon-container">✉️</span> aryan007gauba@gmail.com
+              <a href="mailto:aryangauba42@gmail.com" className="portfolio-footer-contact-link">
+                <span className="portfolio-icon-container">✉️</span> aryangauba42@gmail.com
               </a>
               
               <a 
