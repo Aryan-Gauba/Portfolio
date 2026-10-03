@@ -1,38 +1,102 @@
 /* =========================================
    Global & Backgrounds
    ========================================= */
-html, body {
+
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Deep space background with a top-center purple/blue glow */
-  background-color: #030014;
-  background-image: radial-gradient(circle at 50% 0%, #3b0764 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, #0f172a 0%, transparent 50%);
+
+  background: #030014;
+
   color: #e2e8f0;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
   scroll-behavior: smooth;
+}
+
+/* =========================================
+   Subtle Random Starry Background
+   ========================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 0;
+
+  opacity: 0.85;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='700' viewBox='0 0 1000 700'%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='37' cy='82' r='1' opacity='.45'/%3E%3Ccircle cx='116' cy='211' r='.8' opacity='.65'/%3E%3Ccircle cx='189' cy='54' r='1.2' opacity='.35'/%3E%3Ccircle cx='243' cy='318' r='.7' opacity='.55'/%3E%3Ccircle cx='312' cy='126' r='1' opacity='.7'/%3E%3Ccircle cx='381' cy='267' r='.8' opacity='.4'/%3E%3Ccircle cx='447' cy='73' r='1.1' opacity='.6'/%3E%3Ccircle cx='509' cy='382' r='.7' opacity='.5'/%3E%3Ccircle cx='574' cy='168' r='1' opacity='.65'/%3E%3Ccircle cx='638' cy='42' r='.8' opacity='.4'/%3E%3Ccircle cx='701' cy='291' r='1.2' opacity='.55'/%3E%3Ccircle cx='768' cy='117' r='.7' opacity='.7'/%3E%3Ccircle cx='827' cy='348' r='1' opacity='.45'/%3E%3Ccircle cx='901' cy='73' r='.8' opacity='.6'/%3E%3Ccircle cx='967' cy='246' r='1.1' opacity='.4'/%3E%3Ccircle cx='71' cy='476' r='.7' opacity='.6'/%3E%3Ccircle cx='154' cy='602' r='1' opacity='.45'/%3E%3Ccircle cx='218' cy='431' r='.8' opacity='.7'/%3E%3Ccircle cx='287' cy='557' r='1.1' opacity='.4'/%3E%3Ccircle cx='354' cy='489' r='.7' opacity='.55'/%3E%3Ccircle cx='421' cy='641' r='1' opacity='.5'/%3E%3Ccircle cx='493' cy='521' r='.8' opacity='.65'/%3E%3Ccircle cx='561' cy='611' r='1.1' opacity='.4'/%3E%3Ccircle cx='629' cy='449' r='.7' opacity='.6'/%3E%3Ccircle cx='694' cy='574' r='1' opacity='.5'/%3E%3Ccircle cx='759' cy='482' r='.8' opacity='.7'/%3E%3Ccircle cx='836' cy='624' r='1.1' opacity='.45'/%3E%3Ccircle cx='914' cy='511' r='.7' opacity='.6'/%3E%3Ccircle cx='978' cy='658' r='1' opacity='.4'/%3E%3C/g%3E%3Cg fill='%23c4b5fd'%3E%3Ccircle cx='92' cy='143' r='.9' opacity='.5'/%3E%3Ccircle cx='276' cy='183' r='1' opacity='.4'/%3E%3Ccircle cx='536' cy='104' r='.9' opacity='.55'/%3E%3Ccircle cx='731' cy='207' r='1' opacity='.45'/%3E%3Ccircle cx='882' cy='179' r='.8' opacity='.6'/%3E%3Ccircle cx='126' cy='368' r='1' opacity='.45'/%3E%3Ccircle cx='331' cy='404' r='.8' opacity='.55'/%3E%3Ccircle cx='617' cy='337' r='1' opacity='.4'/%3E%3Ccircle cx='798' cy='399' r='.9' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+
+  background-size: 1000px 700px;
+  background-repeat: repeat;
+}
+
+/* Very subtle purple atmosphere near the top */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 50% 5%,
+      rgba(88, 28, 135, 0.10),
+      transparent 70%
+    );
+
+  opacity: 0.7;
 }
 
 #root {
   min-height: 100vh;
+
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio-container {
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
+
   overflow-x: hidden;
+
+  position: relative;
+
+  z-index: 1;
 }
+
 
 /* =========================================
    Animations
    ========================================= */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -40,45 +104,70 @@ html, body {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
+
 
 /* =========================================
    Navigation (Glassmorphism Pill)
    ========================================= */
+
 .portfolio-header {
   position: sticky;
   top: 20px;
   z-index: 50;
+
   display: flex;
   justify-content: center;
+
   padding: 0 24px;
 }
 
 .portfolio-nav {
   width: 100%;
-  max-width: 800px; /* Condensed pill shape */
+  max-width: 800px;
+
   padding: 12px 32px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Glassmorphism effects */
+
   background: rgba(255, 255, 255, 0.03);
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+
   border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 50px;
+
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-logo {
   font-size: 22px;
   font-weight: 800;
-  background: linear-gradient(90deg, #a855f7, #3b82f6);
+
+  background: linear-gradient(
+    90deg,
+    #a855f7,
+    #3b82f6
+  );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   animation: float 4s ease-in-out infinite;
 }
 
@@ -89,338 +178,610 @@ html, body {
 
 .portfolio-link {
   color: #cbd5e1;
+
   text-decoration: none;
+
   font-weight: 500;
   font-size: 15px;
+
   transition: all 0.3s ease;
+
   padding: 6px 12px;
+
   border-radius: 20px;
 }
 
 .portfolio-link:hover {
   color: #fff;
+
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.4);
 }
+
 
 /* =========================================
    Main Layout & Typography
    ========================================= */
+
 .portfolio-main-content {
   max-width: 1200px;
+
   width: 100%;
+
   margin: 0 auto;
+
   padding: 80px 24px;
+
   box-sizing: border-box;
+
   flex: 1 0 auto;
 }
 
 .portfolio-section {
   padding: 60px 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+
+  animation:
+    fadeInUp 0.8s ease-out forwards;
 }
 
-/* Hero Section */
+
+/* =========================================
+   Hero Section
+   ========================================= */
+
 .portfolio-hero-title {
   font-size: 64px;
+
   margin: 0 0 16px 0;
+
   font-weight: 900;
+
   letter-spacing: -1px;
+
   line-height: 1.1;
-  /* Glowing Text Gradient */
-  background: linear-gradient(to right, #ffffff, #a855f7, #3b82f6);
+
+  background:
+    linear-gradient(
+      to right,
+      #ffffff,
+      #a855f7,
+      #3b82f6
+    );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .portfolio-hero-subtitle {
   font-size: 22px;
+
   color: #94a3b8;
+
   margin: 0 0 24px 0;
+
   font-weight: 400;
 }
 
 .portfolio-bio {
   font-size: 18px;
+
   color: #cbd5e1;
+
   line-height: 1.7;
+
   max-width: 750px;
 }
 
 .portfolio-divider {
   border: 0;
+
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(168, 85, 247, 0.3), transparent);
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(168, 85, 247, 0.3),
+      transparent
+    );
+
   margin: 40px 0;
 }
 
 .portfolio-section-title {
   font-size: 36px;
+
   margin-bottom: 40px;
+
   font-weight: 700;
+
   color: #fff;
 }
 
+
 /* =========================================
-   Project Cards (The "Modern" Look)
+   Project Cards
    ========================================= */
+
 .portfolio-project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(340px, 1fr)
+    );
+
   gap: 40px;
 }
 
 .portfolio-project-card {
-  background: rgba(20, 20, 35, 0.6);
+  background:
+    rgba(20, 20, 35, 0.45);
+
   backdrop-filter: blur(10px);
+
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              box-shadow 0.4s ease, border-color 0.4s ease;
+
+  transition:
+    transform 0.4s
+      cubic-bezier(
+        0.175,
+        0.885,
+        0.32,
+        1.275
+      ),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 .portfolio-project-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 20px 40px -10px rgba(168, 85, 247, 0.2);
+
+  border-color:
+    rgba(168, 85, 247, 0.4);
+
+  box-shadow:
+    0 20px 40px -10px
+    rgba(168, 85, 247, 0.2);
 }
 
 .portfolio-project-image {
   height: 200px;
+
   background-size: cover;
+
   background-position: center;
+
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.5s ease;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  transition:
+    transform 0.5s ease;
 }
 
-.portfolio-project-card:hover .portfolio-project-image {
-  transform: scale(1.05); /* Slight zoom on hover */
+.portfolio-project-card:hover
+.portfolio-project-image {
+  transform: scale(1.05);
 }
 
 .portfolio-project-details {
   padding: 30px;
+
   display: flex;
   flex-direction: column;
+
   flex-grow: 1;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
-  z-index: 2; /* Keeps text above scaled image */
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 0, 0, 0.4)
+    );
+
+  z-index: 2;
 }
 
 .portfolio-project-card-title {
   margin: 0 0 12px 0;
+
   font-size: 24px;
+
   color: #fff;
+
   font-weight: 700;
 }
 
 .portfolio-project-text {
   color: #94a3b8;
+
   line-height: 1.6;
+
   font-size: 15px;
+
   margin: 0 0 24px 0;
+
   flex-grow: 1;
 }
 
-/* Tags */
+
+/* =========================================
+   Tags
+   ========================================= */
+
 .portfolio-tag-wrapper {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
+
   margin-bottom: 24px;
 }
 
 .portfolio-tag {
-  background: rgba(59, 130, 246, 0.1);
+  background:
+    rgba(59, 130, 246, 0.1);
+
   color: #93c5fd;
+
   padding: 6px 12px;
+
   border-radius: 20px;
+
   font-size: 12px;
+
   font-weight: 600;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+
+  border:
+    1px solid
+    rgba(59, 130, 246, 0.2);
 }
 
-/* Buttons */
+
+/* =========================================
+   Buttons
+   ========================================= */
+
 .portfolio-action-links {
   display: flex;
+
   gap: 16px;
 }
 
 .portfolio-btn-primary {
-  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  background:
+    linear-gradient(
+      90deg,
+      #8b5cf6,
+      #3b82f6
+    );
+
   color: white;
+
   padding: 10px 20px;
+
   border-radius: 8px;
+
   text-decoration: none;
+
   font-size: 14px;
+
   font-weight: 600;
+
   text-align: center;
+
   flex-grow: 1;
-  transition: opacity 0.2s, transform 0.2s;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+
+  box-shadow:
+    0 4px 15px
+    rgba(139, 92, 246, 0.3);
 }
 
 .portfolio-btn-primary:hover {
   opacity: 0.9;
+
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+
+  box-shadow:
+    0 6px 20px
+    rgba(139, 92, 246, 0.5);
 }
 
 .portfolio-btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    rgba(255, 255, 255, 0.05);
+
   color: #f8fafc;
+
   padding: 10px 20px;
+
   border-radius: 8px;
+
   text-decoration: none;
+
   font-size: 14px;
+
   font-weight: 600;
+
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.2s, border-color 0.2s;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .portfolio-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  border-color:
+    rgba(255, 255, 255, 0.3);
 }
+
 
 /* =========================================
    Footer & Contact Section
    ========================================= */
+
 .portfolio-footer {
-  background: #02000a;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 80px 24px 30px 24px;
+  background:
+    rgba(2, 0, 10, 0.65);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  padding:
+    80px 24px 30px 24px;
+
   position: relative;
 }
 
-/* Adds a subtle bottom glow */
 .portfolio-footer::before {
   content: '';
+
   position: absolute;
+
   bottom: 0;
   left: 50%;
+
   transform: translateX(-50%);
+
   width: 100%;
+
   height: 2px;
-  background: linear-gradient(to right, transparent, #8b5cf6, transparent);
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      #8b5cf6,
+      transparent
+    );
+
   opacity: 0.3;
 }
 
 .portfolio-footer-container {
   max-width: 1200px;
+
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(320px, 1fr)
+    );
+
   gap: 60px;
 }
 
 .portfolio-footer-title {
   font-size: 36px;
+
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #fff, #a855f7);
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #a855f7
+    );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .portfolio-footer-text {
   color: #94a3b8;
+
   font-size: 16px;
+
   line-height: 1.7;
+
   margin: 0 0 32px 0;
 }
 
 .portfolio-contact-details-block {
   display: flex;
+
   flex-direction: column;
+
   gap: 16px;
 }
 
 .portfolio-detail-heading {
   margin: 0 0 8px 0;
+
   color: #64748b;
+
   text-transform: uppercase;
+
   letter-spacing: 0.1em;
+
   font-size: 12px;
+
   font-weight: 700;
 }
 
 .portfolio-footer-contact-link {
   color: #e2e8f0;
+
   text-decoration: none;
+
   font-size: 16px;
+
   display: flex;
+
   align-items: center;
+
   width: fit-content;
-  transition: color 0.2s, transform 0.2s;
+
+  transition:
+    color 0.2s,
+    transform 0.2s;
 }
 
 .portfolio-footer-contact-link:hover {
   color: #a855f7;
+
   transform: translateX(5px);
 }
 
 .portfolio-icon-container {
   margin-right: 12px;
+
   font-size: 20px;
-  background: rgba(255, 255, 255, 0.05);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
   padding: 8px;
+
   border-radius: 8px;
 }
 
 .portfolio-footer-form-wrapper {
-  background: rgba(20, 20, 30, 0.4);
+  background:
+    rgba(20, 20, 30, 0.4);
+
   backdrop-filter: blur(12px);
+
   padding: 32px;
+
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-copyright {
   text-align: center;
+
   color: #475569;
+
   font-size: 14px;
+
   margin-top: 80px;
+
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
 }
 
-/* --- Experience Section Styles --- */
+
+/* =========================================
+   Experience Section
+   ========================================= */
+
 .portfolio-experience-list {
   display: flex;
+
   flex-direction: column;
+
   gap: 1.5rem;
+
   max-width: 900px;
+
   margin: 0 auto;
 }
 
 .portfolio-experience-card {
   display: flex;
+
   gap: 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
   border-radius: 12px;
+
   padding: 1.75rem;
+
   backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .portfolio-experience-card:hover {
-  border-color: rgba(168, 85, 247, 0.4);
+  border-color:
+    rgba(168, 85, 247, 0.4);
+
   transform: translateY(-2px);
 }
 
 .experience-company-logo {
   width: 52px;
   height: 52px;
+
   border-radius: 8px;
+
   background-size: cover;
+
   background-position: center;
-  background-color: rgba(255, 255, 255, 0.1);
+
+  background-color:
+    rgba(255, 255, 255, 0.1);
+
   flex-shrink: 0;
 }
 
@@ -430,41 +791,57 @@ html, body {
 
 .experience-title {
   font-size: 1.15rem;
+
   font-weight: 600;
+
   color: #ffffff;
+
   margin: 0 0 0.25rem 0;
 }
 
 .experience-company-name {
   font-size: 1.2rem;
+
   font-weight: 600;
+
   color: #ffffff;
+
   margin: 0 0 0.25rem 0;
 }
 
 .experience-company {
   font-size: 0.95rem;
+
   color: #cbd5e1;
+
   margin: 0 0 0.25rem 0;
 }
 
 .experience-type {
   font-weight: 400;
+
   color: #94a3b8;
 }
 
 .experience-duration,
 .experience-location {
   font-size: 0.85rem;
+
   color: #94a3b8;
+
   margin: 0 0 0.25rem 0;
 }
 
 .experience-bullets {
-  margin: 0.85rem 0 0.75rem 1.2rem;
+  margin:
+    0.85rem 0 0.75rem 1.2rem;
+
   padding: 0;
+
   color: #cbd5e1;
+
   font-size: 0.92rem;
+
   line-height: 1.6;
 }
 
@@ -474,43 +851,406 @@ html, body {
 
 .experience-skills {
   margin-top: 0.6rem;
+
   font-size: 0.88rem;
+
   color: #e2e8f0;
 }
 
 .experience-skills-label {
   font-weight: 600;
+
   color: #a855f7;
 }
 
-/* Timeline nested roles (for organizations like IIC MSIT) */
+
+/* =========================================
+   Timeline Nested Roles
+   ========================================= */
+
 .experience-roles-timeline {
   margin-top: 1rem;
+
   padding-left: 1rem;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
+
+  border-left:
+    2px solid
+    rgba(255, 255, 255, 0.1);
+
   display: flex;
+
   flex-direction: column;
+
   gap: 1.25rem;
 }
 
 .experience-role-item {
   position: relative;
+
   padding-left: 0.75rem;
 }
 
 .timeline-node {
   position: absolute;
+
   left: -1.45rem;
+
   top: 0.35rem;
+
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
+
   background-color: #a855f7;
 }
 
+
+/* =========================================
+   Mobile Responsive
+   ========================================= */
+
 @media (max-width: 640px) {
+
   .portfolio-experience-card {
     flex-direction: column;
+
     padding: 1.25rem;
+  }
+
+  .portfolio-nav {
+    padding:
+      10px 18px;
+  }
+
+  .portfolio-nav-links {
+    gap: 8px;
+  }
+
+  .portfolio-link {
+    padding:
+      6px 8px;
+
+    font-size: 13px;
+  }
+
+  .portfolio-main-content {
+    padding:
+      60px 18px;
+  }
+
+  .portfolio-hero-title {
+    font-size: 44px;
+  }
+
+  .portfolio-hero-subtitle {
+    font-size: 18px;
+  }
+
+  .portfolio-bio {
+    font-size: 16px;
+  }
+
+  .portfolio-project-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .portfolio-project-card {
+    min-width: 0;
+  }
+
+  .portfolio-footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  /* Slightly reduce star visibility on small screens */
+
+  body::before {
+    opacity: 0.40;
+  }
+
+  body::after {
+    opacity: 0.45;
+  }
+}
+
+
+/* =========================================
+   Subtle Shooting Stars
+   ========================================= */
+
+.shooting-stars {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  /*
+    Keep shooting stars behind
+    all portfolio content.
+  */
+
+  z-index: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   Individual Shooting Star
+   ========================================= */
+
+.shooting-star {
+  position: absolute;
+
+  /*
+    Longer tail than before.
+    This makes the shooting star
+    visible across a larger distance.
+  */
+
+  width: 170px;
+  height: 1.5px;
+
+  /*
+    Bright head + subtle fading tail.
+    Kept intentionally soft so it
+    doesn't overpower the background.
+  */
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196, 181, 253, 0.10) 25%,
+      rgba(216, 198, 255, 0.40) 60%,
+      rgba(255, 255, 255, 0.85) 100%
+    );
+
+  border-radius: 999px;
+
+  opacity: 0;
+
+  /*
+    Direction:
+    top-right → bottom-left
+  */
+
+  transform: rotate(135deg);
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================
+   Shooting Star #1
+   Starts immediately
+   ========================================= */
+
+.shooting-star-1 {
+  top: 15%;
+  left: 82%;
+
+  animation:
+    shootingStar 21s linear infinite;
+}
+
+
+/* =========================================
+   Shooting Star #2
+   Starts ~6 seconds later
+   ========================================= */
+
+.shooting-star-2 {
+  top: 32%;
+  left: 60%;
+
+  animation:
+    shootingStar 21s linear 6s infinite;
+}
+
+
+/* =========================================
+   Shooting Star #3
+   Starts ~14 seconds later
+   ========================================= */
+
+.shooting-star-3 {
+  top: 10%;
+  left: 38%;
+
+  animation:
+    shootingStar 21s linear 14s infinite;
+}
+
+
+/* =========================================
+   Shooting Animation
+
+   Total cycle = 21 seconds
+
+   Star #1 → 0s
+   Star #2 → 6s
+   Star #3 → 14s
+
+   This creates a natural staggered rhythm
+   rather than several stars appearing together.
+
+   Movement:
+   Previous → 180px
+   New      → 420px
+
+   The star therefore travels much farther
+   across the screen.
+   ========================================= */
+
+@keyframes shootingStar {
+
+  /* Hidden */
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(0, 0)
+      rotate(135deg);
+  }
+
+
+  /* Begin appearing */
+
+  2% {
+    opacity: 0;
+  }
+
+
+  /* Bright enough to notice */
+
+  3% {
+    opacity: 0.72;
+  }
+
+
+  /*
+    Long travel.
+
+    420px horizontal
+    420px vertical
+
+    Because the star is rotated 135deg,
+    this creates a much longer diagonal
+    movement across the background.
+  */
+
+  11% {
+    opacity: 0.62;
+
+    transform:
+      translate(-420px, 420px)
+      rotate(135deg);
+  }
+
+
+  /* Fade out at the end */
+
+  13% {
+    opacity: 0;
+  }
+
+
+  /* Stay hidden until next cycle */
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-420px, 420px)
+      rotate(135deg);
+  }
+}
+
+
+/* =========================================
+   Mobile Shooting Stars
+   ========================================= */
+
+@media (max-width: 640px) {
+
+  .shooting-star {
+    /*
+      Smaller tail on mobile.
+      Still noticeably longer than
+      the original version.
+    */
+
+    width: 110px;
+  }
+
+  .shooting-star-1 {
+    top: 18%;
+    left: 78%;
+  }
+
+  .shooting-star-2 {
+    top: 38%;
+    left: 58%;
+  }
+
+  .shooting-star-3 {
+    top: 12%;
+    left: 32%;
+  }
+
+  /*
+    Slightly shorter travel on mobile
+    to keep the animation subtle.
+  */
+
+  @keyframes shootingStar {
+
+    0% {
+      opacity: 0;
+
+      transform:
+        translate(0, 0)
+        rotate(135deg);
+    }
+
+    2% {
+      opacity: 0;
+    }
+
+    3% {
+      opacity: 0.70;
+    }
+
+    11% {
+      opacity: 0.58;
+
+      transform:
+        translate(-300px, 300px)
+        rotate(135deg);
+    }
+
+    13% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+
+      transform:
+        translate(-300px, 300px)
+        rotate(135deg);
+    }
   }
 }

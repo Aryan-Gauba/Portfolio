@@ -173,6 +173,14 @@ function App() {
 
   return (
     <div className="portfolio-container">
+
+      {/* Subtle shooting stars */}
+      <div className="shooting-stars" aria-hidden="true">
+        <span className="shooting-star shooting-star-1"></span>
+        <span className="shooting-star shooting-star-2"></span>
+        <span className="shooting-star shooting-star-3"></span>
+      </div>
+
       {/* Navbar sliding down from top */}
       <motion.header 
         className="portfolio-header"
